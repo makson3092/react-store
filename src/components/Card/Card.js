@@ -24,7 +24,7 @@ function Card({ id, onFavorite, onPlus, title, imageUrl, price, favorited }) {
         <div className="favorite" onClick={onFavorite}>
           <img
             onClick={handleClickFavorire}
-            src={isFavorite ? "./img/liked.svg" : "./img/unliked.svg"}
+            src={isFavorite ? "/public/img/liked.svg" : "./img/unliked.svg"}
             alt="Unliked"
           />
         </div>
