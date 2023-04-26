@@ -19,14 +19,14 @@ function Home({
             <img
               className="clear"
               onClick={() => setSearchValue("")}
-              src="../../assets/svg/btn-remove.svg"
+              src="react-store/img/btn-remove.svg"
               alt="clear"
             />
           )}
           <img
             width={18}
             height={20}
-            src="../../assets/svg/search.svg"
+            src="react-store/img/search.svg"
             alt="Search"
           />
           <input

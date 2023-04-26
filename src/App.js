@@ -69,7 +69,7 @@ function App() {
         setFavorites((prev) => [...prev, data]);
       }
     } catch (error) {
-      alert("Не можливо добавити в вибране");
+      console.log("Не можливо добавити в вибране");
     }
   };
 

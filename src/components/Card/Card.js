@@ -24,7 +24,11 @@ function Card({ id, onFavorite, onPlus, title, imageUrl, price, favorited }) {
         <div className="favorite" onClick={onFavorite}>
           <img
             onClick={handleClickFavorire}
-            src={isFavorite ? "/public/img/liked.svg" : "./img/unliked.svg"}
+            src={
+              isFavorite
+                ? "react-store/img/liked.svg"
+                : "react-store/img/unliked.svg"
+            }
             alt="Unliked"
           />
         </div>
@@ -39,7 +43,11 @@ function Card({ id, onFavorite, onPlus, title, imageUrl, price, favorited }) {
         <img
           className="plus"
           onClick={handleClick}
-          src={isAdded ? "/img/btn-checked.svg" : "/img/btn-plus.svg"}
+          src={
+            isAdded
+              ? "react-store/img/btn-checked.svg"
+              : "react-store/img/btn-plus.svg"
+          }
           alt="plus"
         />
         {/* <button className="button">

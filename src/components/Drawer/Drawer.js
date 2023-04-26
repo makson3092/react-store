@@ -7,7 +7,7 @@ function Drawer({ onClose, onRemove, items = [] }) {
           <img
             onClick={onClose}
             className="removeBtn"
-            src="../../assets/svg/btn-remove.svg"
+            src="react-store/img/btn-remove.svg"
             alt="remove"
           />
         </h2>
@@ -27,7 +27,7 @@ function Drawer({ onClose, onRemove, items = [] }) {
                   <img
                     onClick={() => onRemove(obj.id)}
                     className="removeBtn"
-                    src="/img/btn-remove.svg"
+                    src="react-store/img/btn-remove.svg"
                     alt="remove"
                   />
                 </div>
@@ -48,7 +48,7 @@ function Drawer({ onClose, onRemove, items = [] }) {
               </ul>
               <button className="greenButton">
                 Оформити замовлення{" "}
-                <img src="../../assets/svg/arrow.svg" alt="arrow" />
+                <img src="react-store/img/arrow.svg" alt="arrow" />
               </button>
             </div>
           </>
@@ -57,13 +57,13 @@ function Drawer({ onClose, onRemove, items = [] }) {
             <img
               width={120}
               height={120}
-              src="../../assets/svg/empty-cart.jpg"
+              src="react-store/img/empty-cart.jpg"
               alt="empty"
             />
             <h2>Кошик пустий</h2>
             <p>Додайте хоть один товар , щоб зробити замовлення</p>
             <button onClick={onClose} className="greenButton">
-              <img src="../../assets/svg/arrow.svg" alt="arrow " />
+              <img src="react-store/img/arrow.svg" alt="arrow " />
               Повернутись назад
             </button>
           </div>

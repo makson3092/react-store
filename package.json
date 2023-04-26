@@ -1,7 +1,7 @@
 {
   "name": "react-store",
   "version": "0.1.0",
-  "homepage": "https://makson3092.github.io/react-store/",
+  "homepage": "https://makson3092.github.io/react-store",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
