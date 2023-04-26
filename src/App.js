@@ -89,7 +89,6 @@ function App() {
       )}
       <Header onClickCart={() => setCartOpen(true)} />
       <Routes>
-        <Route path="react-store" />
         <Route
           path="/"
           element={
@@ -109,6 +108,7 @@ function App() {
             <Favorites items={favorites} onAddFavorite={onAddFavorite} />
           }
         />
+        <Route path="*" />
       </Routes>
     </div>
   );
