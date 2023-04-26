@@ -90,7 +90,7 @@ function App() {
       <Header onClickCart={() => setCartOpen(true)} />
       <Routes>
         <Route
-          path="/"
+          path="/react-store"
           element={
             <Home
               items={items}
