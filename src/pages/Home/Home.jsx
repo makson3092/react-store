@@ -2,12 +2,33 @@ import Card from "../../components/Card";
 
 function Home({
   items,
+  cartItems,
   searchValue,
   setSearchValue,
   onChangeSearchInput,
   onAddFavorite,
   onAddToCart,
+  isLoading,
 }) {
+  const renderItems = () => {
+    const filterItems = items.filter((item) =>
+      item.title.toLowerCase().includes(searchValue.toLowerCase())
+    );
+    return (isLoading ? [...Array(12)] : filterItems).map((item, index) => (
+      <Card
+        key={index}
+        // title={item.title}
+        // price={item.price}
+        // imageUrl={item.imageUrl}
+        {...item}
+        onFavorite={(obj) => onAddFavorite(obj)}
+        onPlus={(obj) => onAddToCart(obj)}
+        added={cartItems.some((obj) => Number(obj.id) === Number(item.id))}
+        loading={isLoading}
+      />
+    ));
+  };
+
   return (
     <div className="content">
       <div className="header-block">
@@ -36,23 +57,7 @@ function Home({
           />
         </div>
       </div>
-      <div className="store">
-        {items
-          .filter((item) =>
-            item.title.toLowerCase().includes(searchValue.toLowerCase())
-          )
-          .map((item) => (
-            <Card
-              key={item.title}
-              // title={item.title}
-              // price={item.price}
-              // imageUrl={item.imageUrl}
-              {...item}
-              onFavorite={(obj) => onAddFavorite(obj)}
-              onPlus={(obj) => onAddToCart(obj)}
-            />
-          ))}
-      </div>
+      <div className="store">{renderItems()}</div>
     </div>
   );
 }
