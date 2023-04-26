@@ -1,6 +1,9 @@
+import React from "react";
 import Card from "../../components/Card";
+import AppContext from "../../components/contex";
 
-function Favorites({ items, onAddFavorite }) {
+function Favorites({ onAddFavorite }) {
+  const { favorites } = React.useContext(AppContext);
   return (
     <div className="content">
       <div className="header-block">
@@ -8,31 +11,14 @@ function Favorites({ items, onAddFavorite }) {
         <div className="search-block"></div>
       </div>
       <div className="store">
-        {items.map((item) => (
+        {favorites.map((item, index) => (
           <Card
-            key={item.title}
-            // title={item.title}
-            // price={item.price}
-            // imageUrl={item.imageUrl}
+            key={index}
             {...item}
             favorited={true}
             onFavorite={onAddFavorite}
           />
         ))}
-        {/* {items
-          .filter((item) =>
-            item.title.toLowerCase().includes(searchValue.toLowerCase())
-          )
-          .map((item) => (
-            <Card
-              key={item.title}
-              title={item.title}
-              price={item.price}
-              imageUrl={item.imageUrl}
-              onFavorite={(obj) => onAddFavorite(obj)}
-              onPlus={(obj) => onAddToCart(obj)}
-            />
-          ))} */}
       </div>
     </div>
   );

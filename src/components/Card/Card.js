@@ -1,6 +1,8 @@
 import React from "react";
 import ContentLoader from "react-content-loader";
 
+import AppContext from "../contex";
+
 function Card({
   id,
   onFavorite,
@@ -12,13 +14,13 @@ function Card({
   added = false,
   loading = false,
 }) {
-  const [isAdded, setIsAdded] = React.useState(added);
+  const { isItemAdded } = React.useContext(AppContext);
+  // const [isAdded, setIsAdded] = React.useState(added);
   const [isFavorite, setIsFavorite] = React.useState(favorited);
 
   const handleClick = () => {
     onPlus({ id, title, imageUrl, price });
-    setIsAdded(!isAdded);
-    console.log("Сheck" + isAdded);
+    // setIsAdded(!isAdded);
   };
 
   const handleClickFavorire = () => {
@@ -72,7 +74,7 @@ function Card({
               className="plus"
               onClick={handleClick}
               src={
-                isAdded
+                isItemAdded(id)
                   ? "react-store/img/btn-checked.svg"
                   : "react-store/img/btn-plus.svg"
               }
