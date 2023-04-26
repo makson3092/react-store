@@ -8,7 +8,7 @@ function Header(props) {
           <img
             width={90}
             height={55}
-            src="react-store/img/logo.png"
+            src="/react-store/img/logo.png"
             alt="logo"
           />
           <div className="headerInfo">
@@ -22,7 +22,7 @@ function Header(props) {
           <img
             width={18}
             height={18}
-            src="react-store/img/shopping.png"
+            src="/react-store/img/shopping.png"
             alt="кошик"
           />
           <span>1050 грн.</span>
@@ -32,7 +32,7 @@ function Header(props) {
             <img
               width={18}
               height={18}
-              src="react-store/img/heart.svg"
+              src="/react-store/img/heart.svg"
               alt="закладки"
             />
           </NavLink>
@@ -41,7 +41,7 @@ function Header(props) {
           <img
             width={18}
             height={18}
-            src="react-store/img/user.svg"
+            src="/react-store/img/user.svg"
             alt="користувач"
           />
         </li>

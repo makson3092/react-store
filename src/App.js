@@ -108,7 +108,7 @@ function App() {
             <Favorites items={favorites} onAddFavorite={onAddFavorite} />
           }
         />
-        <Route path="react-store" />
+        <Route path="*" />
       </Routes>
     </div>
   );
