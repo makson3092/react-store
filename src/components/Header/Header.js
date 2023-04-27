@@ -30,7 +30,7 @@ function Header(props) {
             src="/react-store/img/shopping.png"
             alt="кошик"
           />
-          <span>{totalPrice ? `${totalPrice} грн.` : "Кошик пустий"}</span>
+          <span>{totalPrice ? `${totalPrice} грн.` : "0 грн."}</span>
         </li>
         <li>
           <NavLink to="/favorites">

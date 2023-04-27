@@ -45,6 +45,8 @@ header {
     display: flex;
     align-items: center;
     h2 {
+      font-size: 21px;
+      padding-right: 10px;
       text-transform: uppercase;
     }
   }
@@ -52,6 +54,11 @@ header {
   .headerRight {
     display: flex;
     flex-direction: row;
+    li:nth-child(1) {
+      span {
+        position: normal;
+      }
+    }
     li:nth-child(1),
     li:nth-child(2) {
       cursor: pointer;
@@ -351,5 +358,47 @@ header {
   }
   100% {
     opacity: 1;
+  }
+}
+
+@media (max-width: 440px) {
+  .content {
+    padding: 40px 20px;
+  }
+  header .headerLeft {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .header-block {
+    flex-direction: column;
+    align-items: normal;
+  }
+  .headerRight {
+    display: flex;
+    flex-direction: row;
+    li:nth-child(1) {
+      position: relative;
+      span {
+        position: absolute;
+        top: 38px;
+        left: 0;
+        width: 120px;
+        font-weight: 600;
+      }
+    }
+  }
+  .store {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 0;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .card {
+    padding: 30px 10px;
+    width: 174px;
+    margin-right: 0;
+    margin-bottom: 26px;
   }
 }
