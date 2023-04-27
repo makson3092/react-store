@@ -1,6 +1,11 @@
+import React from "react";
 import { NavLink } from "react-router-dom";
+import AppContext from "../contex";
 
 function Header(props) {
+  const { cartItems } = React.useContext(AppContext);
+  const totalPrice = cartItems.reduce((sum, obj) => obj.price + sum, 0);
+
   return (
     <header>
       <NavLink to="/">
@@ -25,7 +30,7 @@ function Header(props) {
             src="/react-store/img/shopping.png"
             alt="кошик"
           />
-          <span>1050 грн.</span>
+          <span>{totalPrice} грн.</span>
         </li>
         <li>
           <NavLink to="/favorites">
