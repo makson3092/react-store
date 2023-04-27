@@ -1,13 +1,15 @@
 import React from "react";
 import axios from "axios";
 
-import AppContext from "../contex";
 import Info from "../Info";
+import AppContext from "../contex";
+// import { useCart } from "../../hooks/useCart";
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-function Drawer({ onClose, onRemove, items = [] }) {
+function Drawer({ onClose, onRemove, items = [], opened }) {
   const { cartItems, setCartItems } = React.useContext(AppContext);
+  // const { cartItems, setCartItems, totalPrice } = useCart();
   const [orderId, setOrderId] = React.useState(null);
   const [isOrderComplete, setIsOrderComplete] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(false);
@@ -28,7 +30,7 @@ function Drawer({ onClose, onRemove, items = [] }) {
       for (let i = 0; i < cartItems.length; i++) {
         const item = cartItems[i];
         await axios.delete(
-          `https://64416069792fe886a8a5f9d8.mockapi.io/cart/${item.id}`
+          "https://64416069792fe886a8a5f9d8.mockapi.io/cart/" + item.id
         );
         await delay(1000);
       }
@@ -39,7 +41,7 @@ function Drawer({ onClose, onRemove, items = [] }) {
   };
 
   return (
-    <div className="overlay">
+    <div className={`overlay  ${opened ? "overlayVisible" : ""} `}>
       <div className="drawer">
         <h2>
           Кошик
@@ -109,20 +111,6 @@ function Drawer({ onClose, onRemove, items = [] }) {
                 : "/react-store/img/empty-cart.jpg"
             }
           />
-          /* <div className="cartEmpty">
-            <img
-              width={120}
-              height={120}
-              src="/react-store/img/empty-cart.jpg"
-              alt="empty"
-            />
-            <h2>Кошик пустий</h2>
-            <p>Додайте хоть один товар , щоб зробити замовлення</p>
-            <button onClick={onClose} className="greenButton">
-              <img src="/react-store/img/arrow.svg" alt="arrow" />
-              Повернутись назад
-            </button>
-          </div> */
         )}
       </div>
     </div>

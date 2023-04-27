@@ -10,7 +10,6 @@ function Home({
   onAddToCart,
   isLoading,
 }) {
-  // const { isItemAdded } = React.useContext(AppContext);
   const renderItems = () => {
     const filterItems = items.filter((item) =>
       item.title.toLowerCase().includes(searchValue.toLowerCase())
@@ -21,7 +20,6 @@ function Home({
         {...item}
         onFavorite={(obj) => onAddFavorite(obj)}
         onPlus={(obj) => onAddToCart(obj)}
-        // added={isItemAdded(item && item.id)}
         loading={isLoading}
       />
     ));

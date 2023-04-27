@@ -5,31 +5,27 @@ import AppContext from "../contex";
 
 function Card({
   id,
-  onFavorite,
-  onPlus,
   title,
   imageUrl,
   price,
+  onFavorite,
+  onPlus,
   favorited = false,
-  added = false,
   loading = false,
 }) {
   const { isItemAdded } = React.useContext(AppContext);
   // const [isAdded, setIsAdded] = React.useState(added);
   const [isFavorite, setIsFavorite] = React.useState(favorited);
+  const itemObj = { id, parentId: id, title, imageUrl, price };
 
   const handleClick = () => {
-    onPlus({ id, title, imageUrl, price });
-    // setIsAdded(!isAdded);
+    onPlus(itemObj);
   };
 
   const handleClickFavorire = () => {
-    onFavorite({ id, title, imageUrl, price });
+    onFavorite(itemObj);
     setIsFavorite(!isFavorite);
   };
-  // React.useEffect(() => {
-  //   console.log("Check change");
-  // }, [isAdded]);
 
   return (
     <div className="card">
@@ -51,17 +47,19 @@ function Card({
       ) : (
         <>
           <div className="cardTittle">
-            <div className="favorite" onClick={onFavorite}>
-              <img
-                onClick={handleClickFavorire}
-                src={
-                  isFavorite
-                    ? "react-store/img/liked.svg"
-                    : "react-store/img/unliked.svg"
-                }
-                alt="Unliked"
-              />
-            </div>
+            {onFavorite && (
+              <div className="favorite" onClick={onFavorite}>
+                <img
+                  onClick={handleClickFavorire}
+                  src={
+                    isFavorite
+                      ? "react-store/img/liked.svg"
+                      : "react-store/img/unliked.svg"
+                  }
+                  alt="Unliked"
+                />
+              </div>
+            )}
             <img width={133} height={112} src={imageUrl} alt="store" />
             <h5>{title}</h5>
           </div>
@@ -70,16 +68,18 @@ function Card({
               <span>Вартість:</span>
               <b>{price} грн.</b>
             </div>
-            <img
-              className="plus"
-              onClick={handleClick}
-              src={
-                isItemAdded(id)
-                  ? "react-store/img/btn-checked.svg"
-                  : "react-store/img/btn-plus.svg"
-              }
-              alt="plus"
-            />
+            {onPlus && (
+              <img
+                className="plus"
+                onClick={handleClick}
+                src={
+                  isItemAdded(id)
+                    ? "react-store/img/btn-checked.svg"
+                    : "react-store/img/btn-plus.svg"
+                }
+                alt="plus"
+              />
+            )}
           </div>
         </>
       )}

@@ -1,10 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import AppContext from "../contex";
+
+import { useCart } from "../../hooks/useCart";
 
 function Header(props) {
-  const { cartItems } = React.useContext(AppContext);
-  const totalPrice = cartItems.reduce((sum, obj) => obj.price + sum, 0);
+  const { totalPrice } = useCart();
 
   return (
     <header>
@@ -30,7 +30,7 @@ function Header(props) {
             src="/react-store/img/shopping.png"
             alt="кошик"
           />
-          <span>{totalPrice} грн.</span>
+          <span>{totalPrice ? `${totalPrice} грн.` : "Кошик пустий"}</span>
         </li>
         <li>
           <NavLink to="/favorites">
@@ -43,12 +43,14 @@ function Header(props) {
           </NavLink>
         </li>
         <li>
-          <img
-            width={18}
-            height={18}
-            src="/react-store/img/user.svg"
-            alt="користувач"
-          />
+          <NavLink to="/orders">
+            <img
+              width={18}
+              height={18}
+              src="/react-store/img/user.svg"
+              alt="користувач"
+            />
+          </NavLink>
         </li>
       </ul>
     </header>
