@@ -2,8 +2,8 @@ import React from "react";
 import Card from "../../components/Card";
 import AppContext from "../../components/contex";
 
-function Favorites({ onAddFavorite }) {
-  const { favorites } = React.useContext(AppContext);
+function Favorites() {
+  const { favorites, onAddFavorite } = React.useContext(AppContext);
   return (
     <div className="content">
       <div className="header-block">
