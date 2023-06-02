@@ -148,7 +148,6 @@ header {
   }
 }
 .favorite {
-  // position: absolute;
   cursor: pointer;
 }
 
@@ -175,7 +174,6 @@ header {
 // Cart-----------------------
 .overlay {
   position: fixed;
-  // position: absolute;
   left: 0;
   top: 0;
   width: 100%;
@@ -215,9 +213,6 @@ header {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
-    // img {
-    //   cursor: pointer;
-    // }
   }
 }
 
@@ -317,9 +312,7 @@ header {
   border-radius: 20px;
   overflow: hidden;
   padding: 20px;
-  // img:nth-child(1) {
-  //   margin-right: 20px;
-  // }
+
   .cartItemImg {
     height: 70px;
     width: 70px;
@@ -327,30 +320,6 @@ header {
     background-position: 0 -3px;
     background-repeat: no-repeat;
     margin-right: 20px;
-  }
-  .totalItem {
-    position: absolute;
-    right: 66px;
-    bottom: 22px;
-    input {
-      width: 22px;
-      text-align: center;
-    }
-    input[type="number"]::-webkit-outer-spin-button,
-    input[type="number"]::-webkit-inner-spin-button {
-      -webkit-appearance: none; // Yeah, yeah everybody write about it
-    }
-
-    input[type="number"],
-    input[type="number"]:hover,
-    input[type="number"]:focus {
-      // appearance: none;
-      -moz-appearance: textfield;
-    }
-    // .totalMinus {
-    // }
-    // .totalPlus {
-    // }
   }
 
   .cart {
@@ -386,14 +355,31 @@ header {
   }
 }
 
-@media (max-width: 440px) {
+@media (max-width: 450px) {
   .content {
     padding: 40px 20px;
   }
+  a {
+    width: auto;
+  }
+  header .headerRight {
+    li:nth-child(n) {
+      margin-right: 0;
+      margin-left: 15px;
+    }
+  }
+
   header .headerLeft {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
+    h2 {
+      padding: 0;
+    }
+    img {
+      width: 147px;
+      height: 35px;
+    }
   }
   .header-block {
     flex-direction: column;
@@ -402,15 +388,26 @@ header {
   .headerRight {
     display: flex;
     flex-direction: row;
-    li:nth-child(1) {
-      position: relative;
-      span {
-        position: absolute;
-        top: 38px;
-        left: 0;
-        width: 120px;
-        font-weight: 600;
+    justify-content: space-around;
+    width: 65%;
+    li {
+      &:nth-child(1) {
+        position: relative;
+        margin-right: 0px;
+
+        span {
+          position: absolute;
+          top: 38px;
+          left: 0;
+          width: 120px;
+          font-weight: 600;
+        }
       }
+    }
+    img {
+      margin: 0;
+      width: 25px;
+      height: 22px;
     }
   }
   .store {
@@ -418,12 +415,57 @@ header {
     flex-wrap: wrap;
     margin-left: 0;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
   }
   .card {
     padding: 30px 10px;
     width: 174px;
     margin-right: 0;
     margin-bottom: 26px;
+  }
+}
+
+@media (max-width: 365px) {
+  .drawer {
+    width: auto;
+  }
+  header {
+    padding-right: 20px;
+    a {
+      width: 165px;
+    }
+    .headerLeft {
+      img {
+        margin: 0;
+      }
+      h2 {
+        padding: 0;
+      }
+    }
+    .headerRight {
+      width: 48%;
+      justify-content: space-between;
+      img {
+        margin: 0;
+        width: 25px;
+        height: 22px;
+      }
+      li:nth-child(n) {
+        margin-right: 0px;
+        margin-left: 15px;
+      }
+    }
+  }
+  .card {
+    width: 155px;
+  }
+}
+@media (max-width: 350px) {
+  .store {
+    justify-content: center;
+    .card {
+      width: 250px;
+      padding: 30px 25px;
+    }
   }
 }
