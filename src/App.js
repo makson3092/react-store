@@ -8,7 +8,7 @@ import Favorites from "./pages/Favorites";
 import AppContext from "./components/contex";
 import Orders from "./pages/Orders";
 
-const API_KEY1 = process.env.REACT_APP_API_KEY1;
+const API_KEY1 = import.meta.env.VITE_API_KEY1;
 const API_KEY2 = process.env.REACT_APP_API_KEY2;
 function App() {
   const [items, setItems] = React.useState([]);
