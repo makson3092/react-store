@@ -309,6 +309,7 @@ header {
 }
 
 .cartItem {
+  position: relative;
   display: flex;
   align-items: center;
   border: 1px solid #f3f3f3;
@@ -326,6 +327,30 @@ header {
     background-position: 0 -3px;
     background-repeat: no-repeat;
     margin-right: 20px;
+  }
+  .totalItem {
+    position: absolute;
+    right: 66px;
+    bottom: 22px;
+    input {
+      width: 22px;
+      text-align: center;
+    }
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+      -webkit-appearance: none; // Yeah, yeah everybody write about it
+    }
+
+    input[type="number"],
+    input[type="number"]:hover,
+    input[type="number"]:focus {
+      // appearance: none;
+      -moz-appearance: textfield;
+    }
+    // .totalMinus {
+    // }
+    // .totalPlus {
+    // }
   }
 
   .cart {

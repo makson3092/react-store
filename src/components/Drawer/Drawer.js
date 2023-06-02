@@ -3,13 +3,13 @@ import axios from "axios";
 
 import Info from "../Info";
 import AppContext from "../contex";
-// import { useCart } from "../../hooks/useCart";
 
+const API_KEY1 = process.env.REACT_APP_API_KEY1;
+const API_KEY2 = process.env.REACT_APP_API_KEY2;
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 function Drawer({ onClose, onRemove, items = [], opened }) {
   const { cartItems, setCartItems } = React.useContext(AppContext);
-  // const { cartItems, setCartItems, totalPrice } = useCart();
   const [orderId, setOrderId] = React.useState(null);
   const [isOrderComplete, setIsOrderComplete] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(false);
@@ -19,7 +19,7 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
     try {
       setIsLoading(true);
       const { data } = await axios.post(
-        "https://64469ac9ee791e1e29042595.mockapi.io/orders",
+        `https://${API_KEY2}.mockapi.io/orders`,
         { items: cartItems }
       );
 
@@ -29,9 +29,7 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
 
       for (let i = 0; i < cartItems.length; i++) {
         const item = cartItems[i];
-        await axios.delete(
-          "https://64416069792fe886a8a5f9d8.mockapi.io/cart/" + item.id
-        );
+        await axios.delete(`https://${API_KEY1}.mockapi.io/cart/${item.id}`);
         await delay(1000);
       }
     } catch (error) {
